@@ -1,0 +1,10 @@
+this is the the website root folder
+the default folders found here follow
+apache2triadcp/
+awstats/
+phpmyadmin/
+phppgadmin/
+phpxmail/
+uebimiau/
+phpsftpd/
+its not good if you delete/move/rename these

@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS `members`;
+CREATE TABLE `members` (
+  `id` int(11) NOT NULL auto_increment,
+  `firstname` varchar(255) NOT NULL default '',
+  `lastname` varchar(255) NOT NULL default '',
+  `address` blob NOT NULL,
+  `mobile` varchar(15) NOT NULL default '',
+  `email` varchar(255) NOT NULL default '',
+  `paymentmethod` varchar(255) NOT NULL default '',
+  `option1` varchar(255) NOT NULL default '',
+  `option2` varchar(255) NOT NULL default '',
+  `other` blob NOT NULL,
+  `allvisits` blob NOT NULL,
+  UNIQUE KEY `id` (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=16 ;
+        
