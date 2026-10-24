@@ -61,7 +61,7 @@ print "</table>";
 
 }
 else {
-$shit = count($argv);
+/* @phpstan-ignore-line */ $shit = count($argv);
 for($i=0;$i<$shit;$i++){
 /* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ eregi_replace(","," ",$argv[$i]);
 /* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ eregi_replace("\""," ",$argv[$i]);
