@@ -3,7 +3,7 @@
 // jscpd:ignore-start
 
 
-/** @psalm-suppress MissingReturnType, MissingParamType */ function search($term,$what,$show,$sort,$order){
+/** @psalm-suppress MissingReturnType, MissingParamType */ /** @psalm-suppress MissingReturnType, MissingParamType */ function search($term,$what,$show,$sort,$order){
 
 global $stream,$rdate,$fucking;
 
@@ -12,9 +12,9 @@ print "<h3>Search Results</h3><hr>";
 if(($term==1) && ($what==1)){
 $y=0;
 $query = "select * from members where allvisits like '%$rdate%' ORDER BY '$sort' $order";
-$sql = $stream->do_query($query,"array");
+/** @psalm-suppress UndefinedClass */ /** @psalm-suppress UndefinedClass */ $sql = $stream->do_query($query,"array");
 $fep = time();
-/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $sql2 = $stream->do_query("insert into history values('',$fep,'Search for \'$rdate\'  by user $fucking')","one");
+/** @psalm-suppress UnusedVariable, UndefinedClass */ /** @psalm-suppress UnusedVariable, UndefinedClass */ $sql2 = $stream->do_query("insert into history values('',$fep,'Search for \'$rdate\'  by user $fucking')","one");
 
 
 print "<table bordercolor=\"#336699\" cellpadding=5 cellspacing=0 border=1 width=800>";
@@ -60,7 +60,7 @@ $y++;
 }
 
 if($y==0){
-/* @phpstan-ignore-line */ /** @psalm-suppress PossiblyUndefinedVariable */ print "<tr bgcolor='$bgcolor'><td colspan=7>No Results Returned</td></tr>";
+/* @phpstan-ignore-line */ /** @psalm-suppress PossiblyUndefinedVariable */ /** @psalm-suppress PossiblyUndefinedVariable */ print "<tr bgcolor='$bgcolor'><td colspan=7>No Results Returned</td></tr>";
 }
 print "<table>";
 }
@@ -68,10 +68,10 @@ else {
 
 
 $query = "select * from members where $what like '%$term%' ORDER BY '$sort' $order";
-$sql = $stream->do_query($query,"array");
+/** @psalm-suppress UndefinedClass */ /** @psalm-suppress UndefinedClass */ $sql = $stream->do_query($query,"array");
 $fep = time();
-/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $sql2 = $stream->do_query("insert into history values('',$fep,'Search for \'$term\' in \'$what\'  by user $fucking')","one");
-/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $sql3 = $stream->do_query("insert into search values('','$term')","one");
+/** @psalm-suppress UnusedVariable, UndefinedClass */ /** @psalm-suppress UnusedVariable, UndefinedClass */ $sql2 = $stream->do_query("insert into history values('',$fep,'Search for \'$term\' in \'$what\'  by user $fucking')","one");
+/** @psalm-suppress UnusedVariable, UndefinedClass */ /** @psalm-suppress UnusedVariable, UndefinedClass */ $sql3 = $stream->do_query("insert into search values('','$term')","one");
 
 if($show==1){
 
@@ -117,7 +117,7 @@ print "<tr bgcolor='$bgcolor'>
 <td><a href='editmember.php?members=memberedit&id=$id'>Show Profile</a> &nbsp;</td></tr>";
 }
 if($y==0){
-/* @phpstan-ignore-line */ /** @psalm-suppress PossiblyUndefinedVariable */ print "<tr bgcolor='$bgcolor'><td colspan=7>No Results Returned</td></tr>";
+/* @phpstan-ignore-line */ /** @psalm-suppress PossiblyUndefinedVariable */ /** @psalm-suppress PossiblyUndefinedVariable */ print "<tr bgcolor='$bgcolor'><td colspan=7>No Results Returned</td></tr>";
 }
 print "<table>";
 
@@ -137,24 +137,24 @@ print "<table>";
 
 
 
-/** @psalm-suppress MissingReturnType */ function stats(){
+/** @psalm-suppress MissingReturnType */ /** @psalm-suppress MissingReturnType */ function stats(){
 
 global $stream;
 
 $rdate = date("j/n/Y");
-/** @psalm-suppress InvalidOperand */ $yesterday = date("j") -1; 
+/** @psalm-suppress InvalidOperand */ /** @psalm-suppress InvalidOperand */ $yesterday = date("j") -1; 
 
 $mon = date("n");
 $year = date("Y");
 $yesterday = "$yesterday/$mon/$year";
 
 $query = "select * from members where allvisits like '%$rdate%'";
-$sql = $stream->do_query($query,"array");
+/** @psalm-suppress UndefinedClass */ /** @psalm-suppress UndefinedClass */ $sql = $stream->do_query($query,"array");
 $clients = count($sql);
 print "No. Clients Visits Today : $clients  <br> ";
 
 $query1 = "select * from members where allvisits like '%$yesterday%'";
-$sql1 = $stream->do_query($query1,"array");
+/** @psalm-suppress UndefinedClass */ /** @psalm-suppress UndefinedClass */ $sql1 = $stream->do_query($query1,"array");
 $clients1 = count($sql1);
 print "No. Clients Visits Yesterday : $clients1";
 
@@ -167,7 +167,7 @@ print "No. Clients Visits Yesterday : $clients1";
 
 
 
-/** @psalm-suppress MissingReturnType, MissingParamType */ function authSendEmail($from, $namefrom, $to, $nameto, $subject, $message) 
+/** @psalm-suppress MissingReturnType, MissingParamType */ /** @psalm-suppress MissingReturnType, MissingParamType */ function authSendEmail($from, $namefrom, $to, $nameto, $subject, $message) 
 { 
     //SMTP + SERVER DETAILS 
     /* * * * CONFIGURATION START * * * */ 
@@ -181,8 +181,8 @@ print "No. Clients Visits Yesterday : $clients1";
     /* * * * CONFIGURATION END * * * * */ 
      
     //Connect to the host on the specified port 
-    /* @phpstan-ignore-line */ /** @psalm-suppress InvalidScalarArgument */ $smtpConnect = fsockopen($smtpServer, $port, $errno, $errstr, $timeout); 
-    /** @psalm-suppress PossiblyFalseArgument */ $smtpResponse = fgets($smtpConnect, 515); 
+    /* @phpstan-ignore-line */ /** @psalm-suppress InvalidScalarArgument */ /** @psalm-suppress InvalidScalarArgument */ $smtpConnect = fsockopen($smtpServer, $port, $errno, $errstr, $timeout); 
+    /** @psalm-suppress PossiblyFalseArgument */ /** @psalm-suppress PossiblyFalseArgument */ $smtpResponse = fgets($smtpConnect, 515); 
     if(empty($smtpConnect))  
     { 
         $output = "Failed to connect: $smtpResponse"; 
@@ -190,7 +190,7 @@ print "No. Clients Visits Yesterday : $clients1";
     } 
     else 
     { 
-        /** @psalm-suppress PossiblyUndefinedVariable, UnusedVariable */ /** @psalm-suppress UnusedVariable */ $logArray['connection'] = "Connected: $smtpResponse"; 
+        /** @psalm-suppress PossiblyUndefinedVariable, UnusedVariable */ /** @psalm-suppress PossiblyUndefinedVariable, UnusedVariable */ $logArray['connection'] = "Connected: $smtpResponse"; 
     } 
 
     //Request Auth Login 

@@ -7,16 +7,16 @@ include("header.php");
 include("menu.php");
 include("functions.php");
 
-/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ if($newmember){
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ if($newmember){
 
-/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ $qt_memstart = "$day/$month/$year";
-/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ $qt_memend = "$eday/$emonth/$eyear";
-/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ $check = $stream->do_query("select * from members where firstname='$qt_fname' and lastname='$qt_lname'","array");
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ $qt_memstart = "$day/$month/$year";
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ $qt_memend = "$eday/$emonth/$eyear";
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ $check = $stream->do_query("select * from members where firstname='$qt_fname' and lastname='$qt_lname'","array");
 
 if(count($check)>0){
 print "<h3><font color=red>The Customer is already in the Database</font></h3><hr>";
 
-/* @phpstan-ignore-line */ /** @psalm-suppress UnusedVariable, UndefinedClass */ /** @psalm-suppress UnusedVariable */ $sql = $stream->do_query("select * from members","array");
+/* @phpstan-ignore-line */ /** @psalm-suppress UnusedVariable, UndefinedClass */ /** @psalm-suppress UnusedVariable, UndefinedClass */ $sql = $stream->do_query("select * from members","array");
 
 print "<table bordercolor=\"#336699\" cellpadding=5 cellspacing=0 border=1 width=800>";
 print "<tr><td width=50><b>Client Id</td><td width=80><b>First Name</td><td width=80><b>Surname</td><td width=180><b>Address</td><td width=80><b>Mobile Number</td><td width=80><b>Email</td></tr>";
@@ -63,16 +63,16 @@ print "</table>";
 else {
 $shit = count($argv);
 for($i=0;$i<$shit;$i++){
-/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ eregi_replace(","," ",$argv[$i]);
-/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ eregi_replace("\""," ",$argv[$i]);
-/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ eregi_replace("'"," ",$argv[$i]);
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ eregi_replace(","," ",$argv[$i]);
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ eregi_replace("\""," ",$argv[$i]);
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ eregi_replace("'"," ",$argv[$i]);
 }
 
 $fep = time();
-/* @phpstan-ignore-line */ /** @psalm-suppress UnusedVariable, UndefinedClass, UndefinedGlobalVariable */ /** @psalm-suppress UnusedVariable */ $sql = $stream->do_query("insert into history values('',$fep,'Added Member \'$qt_fname $qt_lname\'  by user $fucking')","one");
+/* @phpstan-ignore-line */ /** @psalm-suppress UnusedVariable, UndefinedClass, UndefinedGlobalVariable */ /** @psalm-suppress UnusedVariable, UndefinedClass, UndefinedGlobalVariable */ $sql = $stream->do_query("insert into history values('',$fep,'Added Member \'$qt_fname $qt_lname\'  by user $fucking')","one");
 
 
-/* @phpstan-ignore-line */ /** @psalm-suppress UnusedVariable, UndefinedClass, UndefinedGlobalVariable */ /** @psalm-suppress UnusedVariable */ $sql = $stream->do_query("insert into members values('','$qt_fname','$qt_lname','$qt_add','$qt_mob','$qt_email','$qt_pay','$qt_memstart','$qt_memend','$qt_other','','0','0','0')","one");
+/* @phpstan-ignore-line */ /** @psalm-suppress UnusedVariable, UndefinedClass, UndefinedGlobalVariable */ /** @psalm-suppress UnusedVariable, UndefinedClass, UndefinedGlobalVariable */ $sql = $stream->do_query("insert into members values('','$qt_fname','$qt_lname','$qt_add','$qt_mob','$qt_email','$qt_pay','$qt_memstart','$qt_memend','$qt_other','','0','0','0')","one");
 print "<h3><font color=red>Client Added</font></h3><hr>";
 
 

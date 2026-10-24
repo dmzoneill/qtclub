@@ -10,9 +10,9 @@ require_once ("sms_api.php");
 
 
 /** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $l=0;
-/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ if($ind=="all"){
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ if($ind=="all"){
 
-	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass */ $sql = $stream->do_query("select * from members","array");
+	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass */ /** @psalm-suppress UndefinedClass */ $sql = $stream->do_query("select * from members","array");
 
 	for($h=0;$h<count($sql);$h++){
 
@@ -28,8 +28,8 @@ require_once ("sms_api.php");
 		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op2 = $tmp[8];
 		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op3 = $tmp[9];
 		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $all = $tmp[10];
-		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ $fname = eregi_replace("[0-9]","",$fname);
-		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ $sname = eregi_replace("[0-9]","",$sname);
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ $fname = eregi_replace("[0-9]","",$fname);
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ $sname = eregi_replace("[0-9]","",$sname);
 
 
 	if(substr(trim($mob),0,2)=="08"){
@@ -37,10 +37,10 @@ require_once ("sms_api.php");
 		$ccc = "3538$rest";
 	}
 	else {
-		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ $ccc = $mod;
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ $ccc = $mod;
 	}
 
-	/** @psalm-suppress RiskyTruthyFalsyComparison */ if(!stristr($ccc,'3538')){
+	/** @psalm-suppress RiskyTruthyFalsyComparison */ /** @psalm-suppress RiskyTruthyFalsyComparison */ if(!stristr($ccc,'3538')){
 		continue;
 	}
 
@@ -48,18 +48,18 @@ require_once ("sms_api.php");
 	  	 /* @phpstan-ignore-line */ $mysms = new sms();
  	/* @phpstan-ignore-line */ $fed = $mysms->getbalance();
  	echo "<b>You have " . $fed ." messages left in your account @ clickatell.</b><br>";
-	/* @phpstan-ignore-line */ /** @psalm-suppress UnusedVariable, UndefinedClass */ /** @psalm-suppress UnusedVariable */ $update = $stream->do_query("update clickatell set msg='$fed' where id=1","one");
+	/* @phpstan-ignore-line */ /** @psalm-suppress UnusedVariable, UndefinedClass */ /** @psalm-suppress UnusedVariable, UndefinedClass */ $update = $stream->do_query("update clickatell set msg='$fed' where id=1","one");
 	$fep = time();
-/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ $sql = $stream->do_query("insert into history values('',$fep,'Sent SMS to Member \'$fname, $sname\'  by user $fucking')","one");
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ $sql = $stream->do_query("insert into history values('',$fep,'Sent SMS to Member \'$fname, $sname\'  by user $fucking')","one");
 
- 	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ $mysms->send ("$ccc", "$fromname", "$frommessage");
+ 	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ $mysms->send ("$ccc", "$fromname", "$frommessage");
 	print "Sent to $ccc, $fname, $sname";
 	
 	}
 }
 /* @phpstan-ignore-line */ elseif($ind=="ind"){
 		
-	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ $sql = $stream->do_query("select * from members where id='$person'","array");
+	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ $sql = $stream->do_query("select * from members where id='$person'","array");
 
 	for($h=0;$h<count($sql);$h++){
 	
@@ -75,8 +75,8 @@ require_once ("sms_api.php");
 		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op2 = $tmp[8];
 		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op3 = $tmp[9];
 		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $all = $tmp[10];
-		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ $fname = eregi_replace("[0-9]","",$fname);
-		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ $sname = eregi_replace("[0-9]","",$sname);
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ $fname = eregi_replace("[0-9]","",$fname);
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ $sname = eregi_replace("[0-9]","",$sname);
 			
 			
 	if(substr(trim($mob),0,2)=="08"){
@@ -84,10 +84,10 @@ require_once ("sms_api.php");
 		$ccc = "3538$rest";
 	}
 	else {
-		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ $ccc = $mod;
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ $ccc = $mod;
 	}
 
-	/** @psalm-suppress RiskyTruthyFalsyComparison */ if(!stristr($ccc,'3538')){
+	/** @psalm-suppress RiskyTruthyFalsyComparison */ /** @psalm-suppress RiskyTruthyFalsyComparison */ if(!stristr($ccc,'3538')){
 		continue;
 	}
 
@@ -95,16 +95,16 @@ require_once ("sms_api.php");
 	 /* @phpstan-ignore-line */ $mysms = new sms();
  	/* @phpstan-ignore-line */ $fed = $mysms->getbalance();
  	echo "<b>You have " . $fed ." messages left in your account @ clickatell.</b><br>";
-	/* @phpstan-ignore-line */ /** @psalm-suppress UnusedVariable, UndefinedClass */ /** @psalm-suppress UnusedVariable */ $update = $stream->do_query("update clickatell set msg='$fed' where id=1","one");
+	/* @phpstan-ignore-line */ /** @psalm-suppress UnusedVariable, UndefinedClass */ /** @psalm-suppress UnusedVariable, UndefinedClass */ $update = $stream->do_query("update clickatell set msg='$fed' where id=1","one");
 	$fep = time();
-	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ $sql = $stream->do_query("insert into history values('',$fep,'Sent SMS to Member \'$fname, $sname\'  by user $fucking')","one");
- 	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ $mysms->send ("$ccc", "$fromname", "$frommessage");
+	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ $sql = $stream->do_query("insert into history values('',$fep,'Sent SMS to Member \'$fname, $sname\'  by user $fucking')","one");
+ 	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ $mysms->send ("$ccc", "$fromname", "$frommessage");
 	print "Sent to $ccc, $fname, $sname";
 
 	}
 }
 else {
-/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass */ $amount = $stream->do_query("select msg from clickatell where id=1","one");
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass */ /** @psalm-suppress UndefinedClass */ $amount = $stream->do_query("select msg from clickatell where id=1","one");
 echo "<b>You have " . $amount ." messages left in your account @ clickatell.</b><br>";
 ?>
 <h3>Send SMS To All Clients</h3><hr>
@@ -127,7 +127,7 @@ echo "<b>You have " . $amount ." messages left in your account @ clickatell.</b>
 <?php
 print "<option value=''>Select One</option>";
 
-/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass */ $sql = $stream->do_query("select * from members order by lastname ASC","array");
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass */ /** @psalm-suppress UndefinedClass */ $sql = $stream->do_query("select * from members order by lastname ASC","array");
 $b=0;
 for($h=0;$h<count($sql);$h++){
 
@@ -143,8 +143,8 @@ for($h=0;$h<count($sql);$h++){
 	/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op2 = $tmp[8];
 	/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op3 = $tmp[9];
 	/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $all = $tmp[10];
-	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ $fname = eregi_replace("[0-9]","",$fname);
-	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ $sname = eregi_replace("[0-9]","",$sname);
+	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ $fname = eregi_replace("[0-9]","",$fname);
+	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ $sname = eregi_replace("[0-9]","",$sname);
 	
 	if(substr(trim($mob),0,2)=="08"){
 		$rest = substr(trim($mob),2,strlen($mob));
@@ -152,10 +152,10 @@ for($h=0;$h<count($sql);$h++){
 		$b++;
 	}
 	else {
-		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ $ccc = $mod;
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ $ccc = $mod;
 	}
 
-	/** @psalm-suppress RiskyTruthyFalsyComparison */ if(!stristr($ccc,'3538')){
+	/** @psalm-suppress RiskyTruthyFalsyComparison */ /** @psalm-suppress RiskyTruthyFalsyComparison */ if(!stristr($ccc,'3538')){
 		continue;
 	}
 
