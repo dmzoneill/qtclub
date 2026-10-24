@@ -1,0 +1,5 @@
+# Vendored third-party: SPAW PHP WYSIWYG editor control (solmetra.com, GPL), see spaw/docs. # codespell:ignore spaw
+spa[w]/
+
+# Third-party licence text: GNU GPL (Free Software Foundation), duplicate of LICENSE.
+gpl.txt

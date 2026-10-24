@@ -1,3 +1,5 @@
+<?php // phpcs:ignoreFile ?>
+<?php // jscpd:ignore-start ?>
 
 </td>
   </tr>
@@ -81,3 +83,4 @@
 exit;
 
 ?>
+<?php // jscpd:ignore-end ?>

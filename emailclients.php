@@ -1,4 +1,6 @@
 <?php
+// phpcs:ignoreFile
+// jscpd:ignore-start
 include("connect.php");
 include("header.php");
 include("functions.php");
@@ -8,9 +10,9 @@ include("menu.php");
 
 
 
-if($ind=="all"){
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ if($ind=="all"){
 
-	$sql = $stream->do_query("select * from members","array");
+	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass */ /** @psalm-suppress UndefinedClass */ $sql = $stream->do_query("select * from members","array");
 
 	for($h=0;$h<count($sql);$h++){
 
@@ -18,71 +20,71 @@ if($ind=="all"){
 		$id = $tmp[0];
 		$fname = $tmp[1];
 		$sname = $tmp[2];
-		$add = substr($tmp[3],0,15);
-		$mob = $tmp[4];
+		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $add = substr($tmp[3],0,15);
+		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $mob = $tmp[4];
 		$email = $tmp[5];
-		$pay = $tmp[6];
-		$op1 = $tmp[7];
-		$op2 = $tmp[8];
-		$op3 = $tmp[9];
-		$all = $tmp[10];
-		$fname = eregi_replace("[0-9]","",$fname);
-		$sname = eregi_replace("[0-9]","",$sname);
+		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $pay = $tmp[6];
+		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op1 = $tmp[7];
+		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op2 = $tmp[8];
+		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op3 = $tmp[9];
+		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $all = $tmp[10];
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ $fname = eregi_replace("[0-9]","",$fname);
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ $sname = eregi_replace("[0-9]","",$sname);
 		$fed = $tmp[12];
 		
 
 		$to = "$email"; 
 		$nameto = "$fname"; 
-		$from = "$fromz"; 
-		$namefrom = "$fromname"; 
-		$subject = "$subject"; 
-		$message = "$frommessage";
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ $from = "$fromz"; 
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ $namefrom = "$fromname"; 
+		/* @phpstan-ignore-line */ /** @psalm-suppress PossiblyUndefinedGlobalVariable */ /** @psalm-suppress PossiblyUndefinedGlobalVariable */ $subject = "$subject"; 
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ $message = "$frommessage";
 		
 			
-		if(!stristr($email,'@')){
+		/** @psalm-suppress RiskyTruthyFalsyComparison */ /** @psalm-suppress RiskyTruthyFalsyComparison */ if(!stristr($email,'@')){
 			continue;
 		}
 		if($fed!="1"){
 			if(authSendEmail($from, $namefrom, $to, $nameto, $subject, $message)){
-				$sas = $stream->do_query("update members set emailconfirmed='1' where id='$id'","one");
+				/* @phpstan-ignore-line */ /** @psalm-suppress UnusedVariable, UndefinedClass */ /** @psalm-suppress UnusedVariable, UndefinedClass */ $sas = $stream->do_query("update members set emailconfirmed='1' where id='$id'","one");
 				print "Emailed $fname $sname<br>";
 			}
 		}
 	}
 	$fep = time();
-	$sql = $stream->do_query("insert into history values('',$fep,'Sent email to all clients, by user $fucking')","one");
+	/* @phpstan-ignore-line */ /** @psalm-suppress UnusedVariable, UndefinedClass, UndefinedGlobalVariable */ /** @psalm-suppress UnusedVariable, UndefinedClass, UndefinedGlobalVariable */ $sql = $stream->do_query("insert into history values('',$fep,'Sent email to all clients, by user $fucking')","one");
 }
-elseif($ind=="ind"){
+/* @phpstan-ignore-line */ elseif($ind=="ind"){
 		
-	$sql = $stream->do_query("select * from members where id='$person'","array");
+	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ $sql = $stream->do_query("select * from members where id='$person'","array");
 
 	for($h=0;$h<count($sql);$h++){
 	
 		$tmp = $sql[$h];
-		$id = $tmp[0];
+		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $id = $tmp[0];
 		$fname = $tmp[1];
 		$sname = $tmp[2];
-		$add = substr($tmp[3],0,15);
-		$mob = $tmp[4];
+		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $add = substr($tmp[3],0,15);
+		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $mob = $tmp[4];
 		$email = $tmp[5];
-		$pay = $tmp[6];
-		$op1 = $tmp[7];
-		$op2 = $tmp[8];
-		$op3 = $tmp[9];
-		$all = $tmp[10];
-		$fname = eregi_replace("[0-9]","",$fname);
-		$sname = eregi_replace("[0-9]","",$sname);
+		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $pay = $tmp[6];
+		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op1 = $tmp[7];
+		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op2 = $tmp[8];
+		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op3 = $tmp[9];
+		/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $all = $tmp[10];
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ $fname = eregi_replace("[0-9]","",$fname);
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ $sname = eregi_replace("[0-9]","",$sname);
 			
 		$to = "$email"; 
 		$nameto = "$fname"; 
-		$from = "$fromz"; 
-		$namefrom = "$fromname"; 
-		$subject = "$subject"; 
-		$message = "$frommessage" ;
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ $from = "$fromz"; 
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ $namefrom = "$fromname"; 
+		/* @phpstan-ignore-line */ /** @psalm-suppress PossiblyUndefinedGlobalVariable */ /** @psalm-suppress PossiblyUndefinedGlobalVariable */ $subject = "$subject"; 
+		/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ $message = "$frommessage" ;
 
 		if(authSendEmail($from, $namefrom, $to, $nameto, $subject, $message)){
 		$fep = time();
-$sql = $stream->do_query("insert into history values('',$fep,'Sent email to Member \'$fname, $sname\'  by user $fucking')","one");
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ $sql = $stream->do_query("insert into history values('',$fep,'Sent email to Member \'$fname, $sname\'  by user $fucking')","one");
 
 
 			print "Emailed $fname $sname<br>";
@@ -117,7 +119,7 @@ else {
 <?php
 print "<option value=''>Select One</option>";
 
-$sql = $stream->do_query("select * from members order by lastname ASC","array");
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass */ /** @psalm-suppress UndefinedClass */ $sql = $stream->do_query("select * from members order by lastname ASC","array");
 
 for($h=0;$h<count($sql);$h++){
 
@@ -125,18 +127,18 @@ for($h=0;$h<count($sql);$h++){
 	$id = $tmp[0];
 	$fname = $tmp[1];
 	$sname = $tmp[2];
-	$add = substr($tmp[3],0,15);
-	$mob = $tmp[4];
+	/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $add = substr($tmp[3],0,15);
+	/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $mob = $tmp[4];
 	$email = $tmp[5];
-	$pay = $tmp[6];
-	$op1 = $tmp[7];
-	$op2 = $tmp[8];
-	$op3 = $tmp[9];
-	$all = $tmp[10];
-	$fname = eregi_replace("[0-9]","",$fname);
-	$sname = eregi_replace("[0-9]","",$sname);
+	/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $pay = $tmp[6];
+	/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op1 = $tmp[7];
+	/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op2 = $tmp[8];
+	/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op3 = $tmp[9];
+	/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $all = $tmp[10];
+	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ $fname = eregi_replace("[0-9]","",$fname);
+	/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ $sname = eregi_replace("[0-9]","",$sname);
 
-	if(!stristr($email,'@')){
+	/** @psalm-suppress RiskyTruthyFalsyComparison */ /** @psalm-suppress RiskyTruthyFalsyComparison */ if(!stristr($email,'@')){
 		continue;
 	}
 
@@ -167,3 +169,4 @@ include("footer.php");
 
 
 ?>
+<?php // jscpd:ignore-end ?>

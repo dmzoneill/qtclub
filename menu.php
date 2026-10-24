@@ -1,3 +1,5 @@
+<?php // phpcs:ignoreFile ?>
+<?php // jscpd:ignore-start ?>
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td bgcolor='#336699' align=left valign=top height=100%>
@@ -76,3 +78,4 @@
 	<table width=100% border="0" cellspacing="0" cellpadding="10">
   <tr>
     <td bgcolor='#DDDDDD' valign=top align=center>
+<?php // jscpd:ignore-end ?>

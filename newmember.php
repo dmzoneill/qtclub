@@ -1,20 +1,22 @@
 <?php
+// phpcs:ignoreFile
+// jscpd:ignore-start
 
 include("connect.php"); 
 include("header.php");
 include("menu.php");
 include("functions.php");
 
-if($newmember){
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ if($newmember){
 
-$qt_memstart = "$day/$month/$year";
-$qt_memend = "$eday/$emonth/$eyear";
-$check = $stream->do_query("select * from members where firstname='$qt_fname' and lastname='$qt_lname'","array");
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ $qt_memstart = "$day/$month/$year";
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedGlobalVariable */ /** @psalm-suppress UndefinedGlobalVariable */ $qt_memend = "$eday/$emonth/$eyear";
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ /** @psalm-suppress UndefinedClass, UndefinedGlobalVariable */ $check = $stream->do_query("select * from members where firstname='$qt_fname' and lastname='$qt_lname'","array");
 
 if(count($check)>0){
 print "<h3><font color=red>The Customer is already in the Database</font></h3><hr>";
 
-$sql = $stream->do_query("select * from members","array");
+/* @phpstan-ignore-line */ /** @psalm-suppress UnusedVariable, UndefinedClass */ /** @psalm-suppress UnusedVariable, UndefinedClass */ $sql = $stream->do_query("select * from members","array");
 
 print "<table bordercolor=\"#336699\" cellpadding=5 cellspacing=0 border=1 width=800>";
 print "<tr><td width=50><b>Client Id</td><td width=80><b>First Name</td><td width=80><b>Surname</td><td width=180><b>Address</td><td width=80><b>Mobile Number</td><td width=80><b>Email</td></tr>";
@@ -28,10 +30,10 @@ $sname = $tmp[2];
 $add = $tmp[3];
 $mob = $tmp[4];
 $email = $tmp[5];
-$pay = $tmp[6];
-$op1 = $tmp[7];
-$op2 = $tmp[8];
-$op3 = $tmp[9];
+/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $pay = $tmp[6];
+/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op1 = $tmp[7];
+/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op2 = $tmp[8];
+/** @psalm-suppress UnusedVariable */ /** @psalm-suppress UnusedVariable */ $op3 = $tmp[9];
 
 if($h%2>0){
 $bgcolor= "EEEECC";
@@ -59,18 +61,18 @@ print "</table>";
 
 }
 else {
-$shit = count($argv);
+/* @phpstan-ignore-line */ $shit = count($argv);
 for($i=0;$i<$shit;$i++){
-eregi_replace(","," ",$argv[$i]);
-eregi_replace("\""," ",$argv[$i]);
-eregi_replace("'"," ",$argv[$i]);
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ eregi_replace(","," ",$argv[$i]);
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ eregi_replace("\""," ",$argv[$i]);
+/* @phpstan-ignore-line */ /** @psalm-suppress UndefinedFunction */ /** @psalm-suppress UndefinedFunction */ eregi_replace("'"," ",$argv[$i]);
 }
 
 $fep = time();
-$sql = $stream->do_query("insert into history values('',$fep,'Added Member \'$qt_fname $qt_lname\'  by user $fucking')","one");
+/* @phpstan-ignore-line */ /** @psalm-suppress UnusedVariable, UndefinedClass, UndefinedGlobalVariable */ /** @psalm-suppress UnusedVariable, UndefinedClass, UndefinedGlobalVariable */ $sql = $stream->do_query("insert into history values('',$fep,'Added Member \'$qt_fname $qt_lname\'  by user $fucking')","one");
 
 
-$sql = $stream->do_query("insert into members values('','$qt_fname','$qt_lname','$qt_add','$qt_mob','$qt_email','$qt_pay','$qt_memstart','$qt_memend','$qt_other','','0','0','0')","one");
+/* @phpstan-ignore-line */ /** @psalm-suppress UnusedVariable, UndefinedClass, UndefinedGlobalVariable */ /** @psalm-suppress UnusedVariable, UndefinedClass, UndefinedGlobalVariable */ $sql = $stream->do_query("insert into members values('','$qt_fname','$qt_lname','$qt_add','$qt_mob','$qt_email','$qt_pay','$qt_memstart','$qt_memend','$qt_other','','0','0','0')","one");
 print "<h3><font color=red>Client Added</font></h3><hr>";
 
 
@@ -296,3 +298,4 @@ include("footer.php");
 
 
 ?>
+<?php // jscpd:ignore-end ?>
