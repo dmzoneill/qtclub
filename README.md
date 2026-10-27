@@ -1,5 +1,9 @@
 # Qt Club Client Database
 
+<p align="center">
+  <img src=".github/logo.png" alt="qtclub logo" width="128" />
+</p>
+
 A PHP and MySQL web application for managing the members of a club.
 
 ## What it does
